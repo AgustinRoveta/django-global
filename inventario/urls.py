@@ -1,6 +1,7 @@
 from django.urls import path
+from django.contrib.auth import views
+from inventario.views import editarProducto, eliminarProducto, listarProductos,crearProducto 
 
-from inventario.views import editarProducto, eliminarProducto, listarProductos  
 urlpatterns = [
     path('', listarProductos, name="base"),
 
@@ -9,5 +10,6 @@ urlpatterns = [
     # el name identificara como se llamara al metodo dentro del contexto,
     # asi sera llamado en el momento de ejecución 
     #el <id> quiere decir que se le pasara un id a través de un parametro
-path('editar/<id>', editarProducto, name="editar")  
+    path('editar/<id>', editarProducto, name="editar"),
+    path('crear',crearProducto, name='crear' ),
 ]
